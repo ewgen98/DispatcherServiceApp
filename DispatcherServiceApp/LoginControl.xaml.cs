@@ -24,6 +24,7 @@ namespace DispatcherServiceApp
         public LoginControl()
         {
             InitializeComponent();
+            DataContext=new LoginControlViewModel();
             TrainsitionigContentSlide.OpeningEffect = new TransitionEffect( TransitionEffectKind.SlideInFromBottom, new TimeSpan(0, 0, 0, 0, 800));
         }
     }

@@ -55,10 +55,8 @@
                     <Button Style="{StaticResource expandButton}" Click="Button_Click_2">
                         <materialDesign:PackIcon Kind="Reply" Width="30" Height="30"/>
                     </Button>
-                    <Button Style="{StaticResource expandButton}" Margin="10 0" Click="Button_Click_1">
-                        <materialDesign:PackIcon Kind="ArrowExpand" Width="30" Height="30"/>
-                    </Button>
-                    <Button Style="{StaticResource closeButton}" Click="Button_Click">
+                   
+                    <Button Margin="10 0" Style="{StaticResource closeButton}" Click="Button_Click">
                         <materialDesign:PackIcon Kind="Close" Width="30" Height="30"/>
                     </Button>
                 </StackPanel>
@@ -66,9 +64,6 @@
         </materialDesign:ColorZone>
         <!--End Header-->
 
-        <Grid Grid.Row="1">
-            <local:MainControl/>
-        </Grid>
-
+        <Grid x:Name="main" Grid.Row="1"/>
     </Grid>
 </Window>

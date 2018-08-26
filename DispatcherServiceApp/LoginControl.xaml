@@ -25,7 +25,7 @@
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 20">
                 <materialDesign:PackIcon Kind="Account" Height="50" Width="50" Margin="0 0 10 0"
                                          Foreground="{Binding ElementName=LoginText, Path=BorderBrush}"/>
-                <TextBox x:Name="LoginText" Grid.Row="2" HorizontalAlignment="Stretch"
+                <TextBox x:Name="LoginText" Grid.Row="2" HorizontalAlignment="Stretch" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"
                          materialDesign:HintAssist.Hint="Имя пользователя" materialDesign:HintAssist.IsFloating="True" FontSize="25"/>
             </StackPanel>
 
@@ -33,9 +33,9 @@
                 <materialDesign:PackIcon Kind="AccountKey" Height="50" Width="50" Margin="0 0 10 0"
                                          Foreground="{Binding ElementName=PasswordText, Path=BorderBrush}" VerticalAlignment="Center"/>
                 <TextBox x:Name="PasswordText" Grid.Row="2" materialDesign:HintAssist.Hint="Пароль" materialDesign:HintAssist.IsFloating="True"
-                         FontSize="25" Width="{Binding ElementName=LoginText, Path=ActualWidth}"/>
+                         FontSize="25" Width="{Binding ElementName=LoginText, Path=ActualWidth}" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
-            <Button Grid.Row="4" Margin="0,20,0,0" Height="Auto" Padding="10">
+                <Button Grid.Row="4" Margin="0,20,0,0" Height="Auto" Padding="10" Command="{Binding LoginCommand}">
                    <TextBlock Style="{StaticResource MaterialDesignButtonTextBlock}" FontWeight="Bold" FontSize="25" Text="Войти"/>
             </Button>
         </Grid>

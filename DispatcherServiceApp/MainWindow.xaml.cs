@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DispatcherServiceApp
 {
@@ -13,6 +14,7 @@ namespace DispatcherServiceApp
         public MainWindow()
         {
             InitializeComponent();
+            AddMainControl(new LoginControl());
         }
 
         private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -25,19 +27,15 @@ namespace DispatcherServiceApp
             Application.Current.Shutdown();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            if (WindowState == WindowState.Maximized)
-            {
-                WindowState=WindowState.Normal;
-                return;
-            }
-            WindowState=WindowState.Maximized;
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             WindowState=WindowState.Minimized;
+        }
+
+        public void AddMainControl(UserControl control)
+        {
+            main.Children.Clear();
+            main.Children.Add(control);
         }
     }
 }

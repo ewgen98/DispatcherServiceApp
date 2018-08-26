@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace DispatcherServiceApp.Infra
+namespace DispatcherServiceApp
 {
     public class RelayCommand:ICommand
     {

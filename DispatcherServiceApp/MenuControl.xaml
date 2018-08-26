@@ -12,9 +12,7 @@
         <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignHeadlineTextBlock}">
             <Setter Property="Margin" Value="10 0"/>
         </Style>
-        <Style TargetType="{x:Type ListBoxItem}">
-            <Setter Property="Padding" Value="20 10"/>
-        </Style>
+        
     </UserControl.Resources>
     <materialDesign:TransitioningContent x:Name="TrainsitionigContentSlide" Margin="20">
         <materialDesign:ColorZone Background="#eeeeee" Mode="Light" materialDesign:ShadowAssist.ShadowDepth="Depth2">
@@ -36,7 +34,7 @@
                     </Grid>
                 </materialDesign:ColorZone>
 
-                <ListBox Grid.Row="1">
+                <ListBox Grid.Row="1" SelectedIndex="0">
                     <ListBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="PhoneForward" VerticalAlignment="Center" Width="30" Height="30"/>

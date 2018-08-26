@@ -29,21 +29,34 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Margin="20" Style="{StaticResource MaterialDesignRaisedLightButton}" Width="Auto" ToolTip="Изменить" materialDesign:RippleAssist.Feedback="Blue">
+                    <Button Margin="20" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            Width="Auto" ToolTip="Изменить" materialDesign:RippleAssist.Feedback="Blue"
+                            Command="{Binding UpdateRequestCommand}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Foreground="#0277bd" Text="Изменить"/>
                             <materialDesign:PackIcon Foreground="#0277bd" IsEnabled="False" Kind="BorderColor" Height="20" Width="20" />
                         </StackPanel>
                     </Button>
 
-                <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
+                    <Button Style="{StaticResource MaterialDesignRaisedLightButton}"
                         Width="Auto" ToolTip="Удалить" materialDesign:RippleAssist.Feedback="Red"
                         Command="{Binding DeleteRequestCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="#d32f2f" Text="Удалить"/>
-                        <materialDesign:PackIcon Foreground="#d32f2f" IsEnabled="False" Kind="DeleteForever" Height="20" Width="20" />
-                    </StackPanel>
-                </Button>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Foreground="#d32f2f" Text="Удалить"/>
+                            <materialDesign:PackIcon Foreground="#d32f2f" IsEnabled="False" Kind="DeleteForever" Height="20" Width="20" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Margin="20" Style="{StaticResource MaterialDesignRaisedLightButton}" Command="{Binding ExportRequestCommand}"
+                        Width="Auto" ToolTip="Экспортировать в Word" materialDesign:RippleAssist.Feedback="#1a237e"
+                        >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Foreground="#1a237e" Text="Экспорт"/>
+                            <materialDesign:PackIcon Foreground="#1a237e" IsEnabled="False" Kind="FileWord" Height="20" Width="20" />
+                        </StackPanel>
+                    </Button>
+
+
                 </WrapPanel>
 
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
@@ -56,19 +69,19 @@
                 </StackPanel>
 
             </Grid>
-            <ListView Grid.Row="1">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="№ Номер заявки"/>
-                        <GridViewColumn Header="Статус"/>
-                        <GridViewColumn Header="Заявка"/>
-                        <GridViewColumn Header="Адрес и заявитель"/>
-                        <GridViewColumn Header="Исполнитель"/>
-                        <GridViewColumn Header="План"/>
-                        <GridViewColumn Header="Срок"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <DataGrid HorizontalAlignment="Stretch" Grid.Row="1" HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding SelectDocumentView}"
+                      FontSize="16" ItemsSource="{Binding Documents}" IsReadOnly="True" CanUserDeleteRows="False" CanUserReorderColumns="False"
+                      CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False"
+                      CanUserResizeColumns="False" CanUserResizeRows="False">
+                <DataGrid.Columns>
+                    <materialDesign:MaterialDataGridTextColumn Header="№" Width="Auto" Binding="{Binding Number}"/>
+                    <materialDesign:MaterialDataGridTextColumn Header="Заявитель" Width="*" Binding="{Binding Declarer}"/>
+                    <materialDesign:MaterialDataGridTextColumn Header="Адрес" Width="*" Binding="{Binding Addresses}"/>
+                    <materialDesign:MaterialDataGridTextColumn Header="Исполнитель" Width="*" Binding="{Binding Executor}"/>
+                    <materialDesign:MaterialDataGridTextColumn Header="Получено" Width="*" Binding="{Binding FirstDate}"/>
+                    <materialDesign:MaterialDataGridTextColumn Header="Выполнено" Width="*" Binding="{Binding LastDate}"/>
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Grid>
     </materialDesign:TransitioningContent>
